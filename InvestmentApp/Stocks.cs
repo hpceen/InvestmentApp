@@ -4,17 +4,17 @@ using System.Windows.Forms;
 using Npgsql;
 
 namespace InvestmentApp {
-    public partial class Clients : Form {
+    public partial class Stocks : Form {
         private const string ConnectionString =
                 "Server=localhost; Port=5432; User Id=postgres; Password=zxcvf1km2msbnm; Database=postgres;";
 
-        private const string Sql = "SELECT * FROM clients ORDER BY id";
+        private const string Sql = "SELECT * FROM stocks ORDER BY id";
 
         private readonly DataSet _dataSet;
         private NpgsqlDataAdapter _adapter;
 
 
-        public Clients() {
+        public Stocks() {
             InitializeComponent();
             dataGridView.DataError += Program.DataGridView_DataError;
 
@@ -25,29 +25,29 @@ namespace InvestmentApp {
                 _adapter = new NpgsqlDataAdapter(Sql, connection);
 
                 _dataSet = new DataSet();
-                _adapter.Fill(_dataSet, "clients");
+                _adapter.Fill(_dataSet);
                 dataGridView.DataSource = _dataSet.Tables[0];
                 // делаем недоступным столбец id для изменения
                 dataGridView.Columns["id"].ReadOnly = true;
                 dataGridView.Columns["id"].Visible = false;
-                dataGridView.Columns["name"].HeaderText = "Название";
-                dataGridView.Columns["property_type"].HeaderText = "Тип собственности";
-                dataGridView.Columns["address"].HeaderText = "Адрес";
-                dataGridView.Columns["phone"].HeaderText = "Телефон";
+                dataGridView.Columns["minimum_transaction_amount"].HeaderText = "Минимальная сумма транзакции";
+                dataGridView.Columns["rating"].HeaderText = "Рейтинг";
+                dataGridView.Columns["yield"].HeaderText = "Доходность";
+                dataGridView.Columns["additional_info"].HeaderText = "Дополнительная информация";
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
 
         private void backButton_Click(object sender, EventArgs e) {
-            Form mainForm = new MainForm();
-            mainForm.Show();
+            Form f1 = new MainForm();
+            f1.Show();
             Hide();
         }
 
         private void addButton_Click(object sender, EventArgs e) // add
         {
-            var row = _dataSet.Tables["clients"].NewRow(); // добавляем новую строку в DataTable
-            _dataSet.Tables["clients"].Rows.Add(row);
+            var row = _dataSet.Tables[0].NewRow(); // добавляем новую строку в DataTable
+            _dataSet.Tables[0].Rows.Add(row);
         }
 
         private void saveButton_Click(object sender, EventArgs e) {
@@ -56,7 +56,7 @@ namespace InvestmentApp {
                     connection.Open();
                     _adapter = new NpgsqlDataAdapter(Sql, connection);
                     _adapter.UpdateCommand = new NpgsqlCommandBuilder(_adapter).GetUpdateCommand();
-                    _adapter.Update(_dataSet, "clients");
+                    _adapter.Update(_dataSet);
                 }
 
                 MessageBox.Show(@"Сохранение успешно выполнено.");

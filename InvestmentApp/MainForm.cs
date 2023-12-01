@@ -15,7 +15,7 @@ namespace InvestmentApp {
         }
 
         private void clientsButton_Click(object sender, EventArgs e) {
-            Form clientsForm= new Clients();
+            Form clientsForm = new Clients();
             clientsForm.Show();
             Hide();
         }
@@ -27,8 +27,8 @@ namespace InvestmentApp {
         }
 
         private void investmentButton_Click(object sender, EventArgs e) {
-            Form f6 = new Form6();
-            f6.Show();
+            Form investmentsForm = new Investments();
+            investmentsForm.Show();
             Hide();
         }
 
@@ -39,8 +39,8 @@ namespace InvestmentApp {
         }
 
         private void stocksButton_Click(object sender, EventArgs e) {
-            Form f8 = new Form8();
-            f8.Show();
+            Form stocksForm = new Stocks();
+            stocksForm.Show();
             Hide();
         }
 

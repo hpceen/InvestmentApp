@@ -4,21 +4,21 @@ using System.Windows.Forms;
 using Npgsql;
 
 namespace InvestmentApp {
-    public partial class Deposits : Form {
+    public partial class Investments : Form {
         private const string ConnectionString =
                 "Server=localhost; Port=5432; User Id=postgres; Password=zxcvf1km2msbnm; Database=postgres;";
 
-        private const string SqlDeposits = "SELECT * FROM deposits ORDER BY id";
+        private const string SqlInvestments = "SELECT * FROM investments ORDER BY id";
         private const string SqlClients = "SELECT * FROM clients ORDER BY name";
-        private const string SqlBanks = "SELECT * FROM banks ORDER BY name";
-        private readonly NpgsqlDataAdapter _adapterBanks;
+        private const string SqlStocks = "SELECT * FROM stocks";
         private readonly NpgsqlDataAdapter _adapterClients;
+        private readonly NpgsqlDataAdapter _adapterStocks;
 
         private readonly DataSet _dataSet;
         private NpgsqlDataAdapter _adapter;
 
 
-        public Deposits() {
+        public Investments() {
             InitializeComponent();
             dataGridView.DataError += Program.DataGridView_DataError;
 
@@ -26,28 +26,36 @@ namespace InvestmentApp {
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             using (var connection = new NpgsqlConnection(ConnectionString)) {
                 connection.Open();
-                _adapter = new NpgsqlDataAdapter(SqlDeposits, connection);
+                _adapter = new NpgsqlDataAdapter(SqlInvestments, connection);
                 _adapterClients = new NpgsqlDataAdapter(SqlClients, connection);
-                _adapterBanks = new NpgsqlDataAdapter(SqlBanks, connection);
+                _adapterStocks = new NpgsqlDataAdapter(SqlStocks, connection);
 
                 _dataSet = new DataSet();
-                _adapter.Fill(_dataSet, "deposits");
+                _adapter.Fill(_dataSet, "investments");
                 _adapterClients.Fill(_dataSet, "clients");
-                _adapterBanks.Fill(_dataSet, "banks");
+                _adapterStocks.Fill(_dataSet, "stocks");
 
-                _dataSet.Relations.Add(new DataRelation("relationClientsDeposits",
+                _dataSet.Relations.Add(new DataRelation("relationClientsInvestments",
                         _dataSet.Tables["clients"].Columns["id"],
-                        _dataSet.Tables["deposits"].Columns["client_id"]));
+                        _dataSet.Tables["investments"].Columns["client_id"]));
 
-                _dataSet.Relations.Add(new DataRelation("relationBanksDeposits",
-                        _dataSet.Tables["banks"].Columns["id"],
-                        _dataSet.Tables["deposits"].Columns["bank_id"]));
+                _dataSet.Relations.Add(new DataRelation("relationStocksInvestments",
+                        _dataSet.Tables["stocks"].Columns["id"],
+                        _dataSet.Tables["investments"].Columns["stock_id"]));
 
 
-                dataGridView.DataSource = _dataSet.Tables["deposits"];
+                dataGridView.DataSource = _dataSet.Tables["investments"];
 
                 dataGridView.Columns["client_id"].Visible = false;
-                dataGridView.Columns["bank_id"].Visible = false;
+                dataGridView.Columns["stock_id"].Visible = false;
+
+                var comboBoxStocks = new DataGridViewComboBoxColumn();
+                comboBoxStocks.Name = "Акции";
+                comboBoxStocks.DataSource = _dataSet.Tables["stocks"];
+                comboBoxStocks.ValueMember = "id";
+                comboBoxStocks.DataPropertyName = "stock_id";
+                dataGridView.Columns.Insert(2, comboBoxStocks);
+                dataGridView.Columns[2].HeaderText = "Акция";
 
                 var comboBoxClients = new DataGridViewComboBoxColumn();
                 comboBoxClients.Name = "Клиенты";
@@ -55,25 +63,14 @@ namespace InvestmentApp {
                 comboBoxClients.DisplayMember = "name";
                 comboBoxClients.ValueMember = "id";
                 comboBoxClients.DataPropertyName = "client_id";
-                dataGridView.Columns.Insert(2, comboBoxClients);
-                dataGridView.Columns[2].HeaderText = "Имя Клиента";
-
-                var comboBoxBanks = new DataGridViewComboBoxColumn();
-                comboBoxBanks.Name = "Банки";
-                comboBoxBanks.DataSource = _dataSet.Tables["banks"];
-                comboBoxBanks.DisplayMember = "name";
-                comboBoxBanks.ValueMember = "id";
-                comboBoxBanks.DataPropertyName = "bank_id";
-                dataGridView.Columns.Insert(3, comboBoxBanks);
-                dataGridView.Columns[3].HeaderText = "Имя Банка";
+                dataGridView.Columns.Insert(3, comboBoxClients);
+                dataGridView.Columns[3].HeaderText = "Имя Клиента";
 
                 // делаем недоступным столбец id для изменения
                 dataGridView.Columns["id"].ReadOnly = true;
                 dataGridView.Columns["id"].Visible = false;
-                dataGridView.Columns["bank_id"].HeaderText = "ID Банка";
-                dataGridView.Columns["deposit_duration"].HeaderText = "Длительность депозита";
-                dataGridView.Columns["date"].HeaderText = "Дата";
-                dataGridView.Columns["amount"].HeaderText = "Сумма";
+                dataGridView.Columns["purchase_date"].HeaderText = "Дата покупки";
+                dataGridView.Columns["sale_date"].HeaderText = "Дата продажи";
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
@@ -86,17 +83,17 @@ namespace InvestmentApp {
 
         private void addButton_Click(object sender, EventArgs e) // add
         {
-            var row = _dataSet.Tables["deposits"].NewRow(); // добавляем новую строку в DataTable
-            _dataSet.Tables["depsits"].Rows.Add(row);
+            var row = _dataSet.Tables["investments"].NewRow(); // добавляем новую строку в DataTable
+            _dataSet.Tables["investments"].Rows.Add(row);
         }
 
         private void saveButton_Click(object sender, EventArgs e) {
             try {
                 using (var connection = new NpgsqlConnection(ConnectionString)) {
                     connection.Open();
-                    _adapter = new NpgsqlDataAdapter(SqlDeposits, connection);
+                    _adapter = new NpgsqlDataAdapter(SqlInvestments, connection);
                     _adapter.UpdateCommand = new NpgsqlCommandBuilder(_adapter).GetUpdateCommand();
-                    _adapter.Update(_dataSet, "deposits");
+                    _adapter.Update(_dataSet, "investments");
                 }
 
                 MessageBox.Show(@"Сохранение успешно выполнено.");
@@ -112,7 +109,7 @@ namespace InvestmentApp {
             foreach (DataGridViewRow row in dataGridView.SelectedRows) dataGridView.Rows.Remove(row);
         }
 
-        private void Deposits_FormClosed(object sender, FormClosedEventArgs e) {
+        private void Investments_FormClosed(object sender, FormClosedEventArgs e) {
             Application.Exit();
         }
     }

@@ -1,20 +1,17 @@
 ﻿using System;
 using System.Data;
-using System.Drawing;
 using System.Windows.Forms;
 using Npgsql;
-using NpgsqlTypes;
 
 namespace InvestmentApp {
     public partial class Banks : Form {
-        private NpgsqlDataAdapter _adapter;
-
         private const string ConnectionString =
                 "Server=localhost; Port=5432; User Id=postgres; Password=zxcvf1km2msbnm; Database=postgres;";
 
-        private readonly DataSet _dataSet;
-
         private const string Sql = "SELECT * FROM banks ORDER BY id";
+
+        private readonly DataSet _dataSet;
+        private NpgsqlDataAdapter _adapter;
 
 
         public Banks() {
@@ -28,7 +25,7 @@ namespace InvestmentApp {
                 _adapter = new NpgsqlDataAdapter(Sql, connection);
 
                 _dataSet = new DataSet();
-                _adapter.Fill(_dataSet);
+                _adapter.Fill(_dataSet, "banks");
                 dataGridView.DataSource = _dataSet.Tables[0];
                 // делаем недоступным столбец id для изменения
                 dataGridView.Columns["id"].ReadOnly = true;
@@ -40,15 +37,15 @@ namespace InvestmentApp {
         }
 
         private void backButton_Click(object sender, EventArgs e) {
-            Form f1 = new MainForm();
-            f1.Show();
+            Form mainForm = new MainForm();
+            mainForm.Show();
             Hide();
         }
 
         private void addButton_Click(object sender, EventArgs e) // add
         {
-            var row = _dataSet.Tables[0].NewRow(); // добавляем новую строку в DataTable
-            _dataSet.Tables[0].Rows.Add(row);
+            var row = _dataSet.Tables["banks"].NewRow(); // добавляем новую строку в DataTable
+            _dataSet.Tables["banks"].Rows.Add(row);
         }
 
         private void saveButton_Click(object sender, EventArgs e) {
@@ -57,7 +54,7 @@ namespace InvestmentApp {
                     connection.Open();
                     _adapter = new NpgsqlDataAdapter(Sql, connection);
                     _adapter.UpdateCommand = new NpgsqlCommandBuilder(_adapter).GetUpdateCommand();
-                    _adapter.Update(_dataSet);
+                    _adapter.Update(_dataSet, "banks");
                 }
 
                 MessageBox.Show(@"Сохранение успешно.");

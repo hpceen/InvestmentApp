@@ -177,10 +177,7 @@
             this.ResumeLayout(false);
             this.PerformLayout();
         }
-
-        public System.Windows.Forms.Button depositsViewButton;
-        public System.Windows.Forms.Button investmentViewButton;
-
+        
         #endregion
         public System.Windows.Forms.Button banksButton;
         public System.Windows.Forms.Button clientsButton;
@@ -189,5 +186,7 @@
         public System.Windows.Forms.Button quotesHistoryButton;
         public System.Windows.Forms.Button stocksButton;
         public System.Windows.Forms.Label titleLabel;
+        public System.Windows.Forms.Button depositsViewButton;
+        public System.Windows.Forms.Button investmentViewButton;
     }
 }

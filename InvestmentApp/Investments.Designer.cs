@@ -1,6 +1,6 @@
 ﻿namespace InvestmentApp
 {
-    partial class Clients
+    partial class Investments
     {
         /// <summary>
         /// Required designer variable.
@@ -27,13 +27,12 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Clients));
             this.backButton = new System.Windows.Forms.Button();
+            this.dataGridView = new System.Windows.Forms.DataGridView();
             this.titleLabel = new System.Windows.Forms.Label();
             this.removeButton = new System.Windows.Forms.Button();
             this.saveButton = new System.Windows.Forms.Button();
             this.addButton = new System.Windows.Forms.Button();
-            this.dataGridView = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             this.SuspendLayout();
             // 
@@ -50,23 +49,32 @@
             this.backButton.UseVisualStyleBackColor = false;
             this.backButton.Click += new System.EventHandler(this.backButton_Click);
             // 
+            // dataGridView
+            // 
+            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView.Location = new System.Drawing.Point(131, 86);
+            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
+            this.dataGridView.Name = "dataGridView";
+            this.dataGridView.Size = new System.Drawing.Size(830, 450);
+            this.dataGridView.TabIndex = 13;
+            // 
             // titleLabel
             // 
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Bookman Old Style", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titleLabel.Location = new System.Drawing.Point(379, 11);
+            this.titleLabel.Location = new System.Drawing.Point(343, 11);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(294, 70);
+            this.titleLabel.Size = new System.Drawing.Size(404, 70);
             this.titleLabel.TabIndex = 16;
-            this.titleLabel.Text = "Клиенты";
+            this.titleLabel.Text = "Инвестиции";
             // 
             // removeButton
             // 
             this.removeButton.BackColor = System.Drawing.Color.Bisque;
             this.removeButton.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.removeButton.Location = new System.Drawing.Point(705, 574);
+            this.removeButton.Location = new System.Drawing.Point(720, 569);
             this.removeButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(252, 48);
@@ -79,7 +87,7 @@
             // 
             this.saveButton.BackColor = System.Drawing.Color.Bisque;
             this.saveButton.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveButton.Location = new System.Drawing.Point(424, 574);
+            this.saveButton.Location = new System.Drawing.Point(439, 569);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(252, 48);
@@ -92,7 +100,7 @@
             // 
             this.addButton.BackColor = System.Drawing.Color.Bisque;
             this.addButton.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addButton.Location = new System.Drawing.Point(128, 574);
+            this.addButton.Location = new System.Drawing.Point(143, 569);
             this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(252, 48);
@@ -101,31 +109,21 @@
             this.addButton.UseVisualStyleBackColor = false;
             this.addButton.Click += new System.EventHandler(this.addButton_Click);
             // 
-            // dataGridView
-            // 
-            this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(131, 86);
-            this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
-            this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(830, 450);
-            this.dataGridView.TabIndex = 22;
-            // 
-            // Clients
+            // Investments
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 718);
-            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.removeButton);
             this.Controls.Add(this.saveButton);
             this.Controls.Add(this.addButton);
             this.Controls.Add(this.titleLabel);
+            this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.backButton);
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "Clients";
-            this.Text = "Клиенты";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Clients_FormClosed);
+            this.Name = "Investments";
+            this.Text = "Tour Agency";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.Investments_FormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -134,10 +132,10 @@
         #endregion
 
         public System.Windows.Forms.Button backButton;
+        private System.Windows.Forms.DataGridView dataGridView;
         public System.Windows.Forms.Label titleLabel;
         public System.Windows.Forms.Button removeButton;
         public System.Windows.Forms.Button saveButton;
         public System.Windows.Forms.Button addButton;
-        private System.Windows.Forms.DataGridView dataGridView;
     }
 }

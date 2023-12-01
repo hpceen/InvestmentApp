@@ -1,6 +1,6 @@
 ﻿namespace InvestmentApp
 {
-    partial class Clients
+    partial class Stocks
     {
         /// <summary>
         /// Required designer variable.

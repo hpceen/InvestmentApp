@@ -6,10 +6,6 @@ using System.Windows.Forms;
 
 namespace InvestmentApp {
     public partial class Form7 : Form {
-        private SqlDataAdapter adapter;
-
-        private SqlCommandBuilder commandBuilder;
-
         //string connectionString = "Server=server46;Database=Valiullin_VT-31;User Id=stud;Password=stud;";
         private readonly string connectionString = "Data Source=COMPUTER;Initial Catalog=master;" +
                                                    "Integrated Security=true;";
@@ -17,6 +13,9 @@ namespace InvestmentApp {
         private readonly DataSet ds;
 
         private readonly string sql = "SELECT * FROM dbo.Vouchers ORDER BY Id";
+        private SqlDataAdapter adapter;
+
+        private SqlCommandBuilder commandBuilder;
 
         public Form7() {
             InitializeComponent();

@@ -53,10 +53,10 @@
             // dataGridView
             // 
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(181, 107);
+            this.dataGridView.Location = new System.Drawing.Point(131, 86);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(724, 458);
+            this.dataGridView.Size = new System.Drawing.Size(830, 450);
             this.dataGridView.TabIndex = 13;
             // 
             // titleLabel
@@ -64,7 +64,7 @@
             this.titleLabel.AutoSize = true;
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
             this.titleLabel.Font = new System.Drawing.Font("Bookman Old Style", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titleLabel.Location = new System.Drawing.Point(428, 32);
+            this.titleLabel.Location = new System.Drawing.Point(379, 11);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(329, 70);
@@ -75,7 +75,7 @@
             // 
             this.removeButton.BackColor = System.Drawing.Color.Bisque;
             this.removeButton.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.removeButton.Location = new System.Drawing.Point(705, 572);
+            this.removeButton.Location = new System.Drawing.Point(720, 569);
             this.removeButton.Margin = new System.Windows.Forms.Padding(4);
             this.removeButton.Name = "removeButton";
             this.removeButton.Size = new System.Drawing.Size(252, 48);
@@ -88,7 +88,7 @@
             // 
             this.saveButton.BackColor = System.Drawing.Color.Bisque;
             this.saveButton.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.saveButton.Location = new System.Drawing.Point(424, 572);
+            this.saveButton.Location = new System.Drawing.Point(439, 569);
             this.saveButton.Margin = new System.Windows.Forms.Padding(4);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(252, 48);
@@ -101,7 +101,7 @@
             // 
             this.addButton.BackColor = System.Drawing.Color.Bisque;
             this.addButton.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.addButton.Location = new System.Drawing.Point(128, 572);
+            this.addButton.Location = new System.Drawing.Point(143, 569);
             this.addButton.Margin = new System.Windows.Forms.Padding(4);
             this.addButton.Name = "addButton";
             this.addButton.Size = new System.Drawing.Size(252, 48);
