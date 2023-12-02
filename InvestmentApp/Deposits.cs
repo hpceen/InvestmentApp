@@ -87,7 +87,7 @@ namespace InvestmentApp {
         private void addButton_Click(object sender, EventArgs e) // add
         {
             var row = _dataSet.Tables["deposits"].NewRow(); // добавляем новую строку в DataTable
-            _dataSet.Tables["depsits"].Rows.Add(row);
+            _dataSet.Tables["deposits"].Rows.Add(row);
         }
 
         private void saveButton_Click(object sender, EventArgs e) {

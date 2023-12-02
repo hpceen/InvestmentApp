@@ -178,8 +178,6 @@ D:\InvestmentApp\InvestmentApp\bin\Debug\zh-Hans\Microsoft.Data.SqlClient.resour
 D:\InvestmentApp\InvestmentApp\bin\Debug\zh-Hant\Microsoft.Data.SqlClient.resources.dll
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.csprojAssemblyReference.cache
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.MainForm.resources
-D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.Form8.resources
-D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.Form7.resources
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.Deposits.resources
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.Clients.resources
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.Banks.resources
@@ -191,3 +189,6 @@ D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.exe
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.pdb
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.Investments.resources
 D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.Stocks.resources
+D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.QuotesHistory.resources
+D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.DepositsView.resources
+D:\InvestmentApp\InvestmentApp\obj\Debug\InvestmentApp.InvestmentsView.resources

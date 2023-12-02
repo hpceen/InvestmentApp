@@ -33,7 +33,7 @@ namespace InvestmentApp {
         }
 
         private void quotesHistoryButton_Click(object sender, EventArgs e) {
-            Form f7 = new Form7();
+            Form f7 = new QuotesHistory();
             f7.Show();
             Hide();
         }
@@ -45,7 +45,9 @@ namespace InvestmentApp {
         }
 
         private void depositsViewButton_Click(object sender, EventArgs e) {
-            throw new NotImplementedException();
+            Form depositsViewForm = new DepositsView();
+            depositsViewForm.Show();
+            Hide();
         }
 
         private void investmentViewButton_Click(object sender, EventArgs e) {

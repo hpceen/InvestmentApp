@@ -4,17 +4,18 @@ using System.Windows.Forms;
 using Npgsql;
 
 namespace InvestmentApp {
-    public partial class Clients : Form {
+    public partial class QuotesHistory : Form {
         private const string ConnectionString =
                 "Server=localhost; Port=5432; User Id=postgres; Password=zxcvf1km2msbnm; Database=postgres;";
 
-        private const string Sql = "SELECT * FROM clients ORDER BY id";
+        private const string SqlQuotesHistory = "SELECT * FROM quotes_history ORDER BY id";
+        private const string SqlInvestment = "SELECT * FROM investments ORDER BY purchase_date";
 
         private readonly DataSet _dataSet;
         private NpgsqlDataAdapter _adapter;
 
 
-        public Clients() {
+        public QuotesHistory() {
             InitializeComponent();
             dataGridView.DataError += Program.DataGridView_DataError;
 
@@ -22,18 +23,33 @@ namespace InvestmentApp {
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             using (var connection = new NpgsqlConnection(ConnectionString)) {
                 connection.Open();
-                _adapter = new NpgsqlDataAdapter(Sql, connection);
+                _adapter = new NpgsqlDataAdapter(SqlQuotesHistory, connection);
+                var adapterInvestments = new NpgsqlDataAdapter(SqlInvestment, connection);
 
                 _dataSet = new DataSet();
-                _adapter.Fill(_dataSet, "clients");
-                dataGridView.DataSource = _dataSet.Tables["clients"];
+                _adapter.Fill(_dataSet, "quotes_history");
+                adapterInvestments.Fill(_dataSet, "investments");
+
+                _dataSet.Relations.Add(new DataRelation("relationInvestmentsQuotesHistory",
+                        _dataSet.Tables["investments"].Columns["id"],
+                        _dataSet.Tables["quotes_history"].Columns["investment_id"]));
+
+                dataGridView.DataSource = _dataSet.Tables["quotes_history"];
+
+                dataGridView.Columns["investment_id"].Visible = false;
+
+                var comboBoxInvestments = new DataGridViewComboBoxColumn();
+                comboBoxInvestments.Name = "Инвестиции";
+                comboBoxInvestments.DataSource = _dataSet.Tables["investments"];
+                comboBoxInvestments.ValueMember = "id";
+                comboBoxInvestments.DataPropertyName = "investment_id";
+                dataGridView.Columns.Insert(2, comboBoxInvestments);
+                dataGridView.Columns[2].HeaderText = "Инвестиция";
+
                 // делаем недоступным столбец id для изменения
                 dataGridView.Columns["id"].ReadOnly = true;
                 dataGridView.Columns["id"].Visible = false;
-                dataGridView.Columns["name"].HeaderText = "Название";
-                dataGridView.Columns["property_type"].HeaderText = "Тип собственности";
-                dataGridView.Columns["address"].HeaderText = "Адрес";
-                dataGridView.Columns["phone"].HeaderText = "Телефон";
+                dataGridView.Columns["date"].HeaderText = "Дата";
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             }
         }
@@ -46,17 +62,17 @@ namespace InvestmentApp {
 
         private void addButton_Click(object sender, EventArgs e) // add
         {
-            var row = _dataSet.Tables["clients"].NewRow(); // добавляем новую строку в DataTable
-            _dataSet.Tables["clients"].Rows.Add(row);
+            var row = _dataSet.Tables["quotes_history"].NewRow(); // добавляем новую строку в DataTable
+            _dataSet.Tables["quotes_history"].Rows.Add(row);
         }
 
         private void saveButton_Click(object sender, EventArgs e) {
             try {
                 using (var connection = new NpgsqlConnection(ConnectionString)) {
                     connection.Open();
-                    _adapter = new NpgsqlDataAdapter(Sql, connection);
+                    _adapter = new NpgsqlDataAdapter(SqlQuotesHistory, connection);
                     _adapter.UpdateCommand = new NpgsqlCommandBuilder(_adapter).GetUpdateCommand();
-                    _adapter.Update(_dataSet, "clients");
+                    _adapter.Update(_dataSet, "quotes_history");
                 }
 
                 MessageBox.Show(@"Сохранение успешно выполнено.");
@@ -72,7 +88,7 @@ namespace InvestmentApp {
             foreach (DataGridViewRow row in dataGridView.SelectedRows) dataGridView.Rows.Remove(row);
         }
 
-        private void Clients_FormClosed(object sender, FormClosedEventArgs e) {
+        private void QuotesHistory_FormClosed(object sender, FormClosedEventArgs e) {
             Application.Exit();
         }
     }

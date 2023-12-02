@@ -4,38 +4,37 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9e04f442-50b8-472a-af91-eb7685b4ff09" name="Changes" comment="Init">
-      <change afterPath="$PROJECT_DIR$/InvestmentApp/Investments.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InvestmentApp/Investments.resx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InvestmentApp/Stocks.Designer.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InvestmentApp/Stocks.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/InvestmentApp/Stocks.resx" afterDir="false" />
+    <list default="true" id="9e04f442-50b8-472a-af91-eb7685b4ff09" name="Changes" comment="Add Investments and Stocks. Bug fix (not saving)">
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/DepositsView.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/DepositsView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/InvestmentsView.Designer.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/InvestmentsView.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/InvestmentsView.resx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.DepositsView.resources" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.InvestmentsView.resources" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.QuotesHistory.resources" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InvestmentApp/.idea/dataSources/feb7a64b-79e1-455d-aa52-d0ebcb107d3c.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InvestmentApp/.idea/dataSources/feb7a64b-79e1-455d-aa52-d0ebcb107d3c.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.InvestmentApp/.idea/dataSources/feb7a64b-79e1-455d-aa52-d0ebcb107d3c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InvestmentApp/.idea/dataSources/feb7a64b-79e1-455d-aa52-d0ebcb107d3c/storage_v2/_src_/database/postgres.edMnLQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.InvestmentApp/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.InvestmentApp/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Banks.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Banks.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Banks.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Banks.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Clients.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Clients.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp.sln.DotSettings.user" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/Clients.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Clients.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/Clients.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Clients.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Deposits.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Deposits.Designer.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/Deposits.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Deposits.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/Deposits.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Deposits.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form6.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Investments.Designer.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form6.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form6.resx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form7.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Form7.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form7.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Form7.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form8.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Form8.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form7.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/QuotesHistory.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form7.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/QuotesHistory.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form7.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/DepositsView.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form8.Designer.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form8.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Form8.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/QuotesHistory.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/InvestmentApp.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/InvestmentApp.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/MainForm.Designer.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/MainForm.Designer.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Investments.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Investments.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/MainForm.cs" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/MainForm.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/MainForm.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/MainForm.resx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/Properties/Resources.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Properties/Resources.resx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/Stocks.resx" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/Stocks.resx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/bin/Debug/InvestmentApp.exe" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/bin/Debug/InvestmentApp.exe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/bin/Debug/InvestmentApp.exe.locked" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/bin/Debug/InvestmentApp.exe.locked" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/bin/Debug/InvestmentApp.pdb" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/bin/Debug/InvestmentApp.pdb" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.Form6.resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.Form7.resources" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.Form8.resources" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.csproj.CoreCompileInputs.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.csproj.CoreCompileInputs.cache" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.csproj.FileListAbsolute.txt" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.csproj.FileListAbsolute.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.csproj.GenerateResource.cache" beforeDir="false" afterPath="$PROJECT_DIR$/InvestmentApp/obj/Debug/InvestmentApp.csproj.GenerateResource.cache" afterDir="false" />
@@ -53,8 +52,22 @@
     <option name="RESET_MODE" value="MIXED" />
     <option name="ROOT_SYNC" value="SYNC" />
   </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hpceen&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">
+    <option name="selectedUrlAndAccountId">
+      <UrlAndAccount>
+        <option name="accountId" value="f18e7054-7ed4-4a76-b8d6-679462d16b39" />
+        <option name="url" value="https://github.com/hpceen/InvestmentApp.git" />
+      </UrlAndAccount>
+    </option>
+  </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock://D:/KURSACH BD/KURSACH BD/InvestmentApp/InvestmentApp/Banks.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock://D:/InvestmentApp/InvestmentApp/Banks.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -62,13 +75,16 @@
   &quot;associatedIndex&quot;: 0
 }</component>
   <component name="ProjectId" id="2Yu3WnfyXyXQDtzrOGBNQO7Xq74" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -79,7 +95,7 @@
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "settings.editor.selected.configurable": "RiderNuGetOptionsPageId",
     "vue.rearranger.settings.migration": "true"
   },
   "keyToStringList": {
@@ -132,7 +148,8 @@
       <workItem from="1701435202554" duration="180000" />
       <workItem from="1701435477567" duration="299000" />
       <workItem from="1701435799536" duration="33000" />
-      <workItem from="1701435877446" duration="3419000" />
+      <workItem from="1701435877446" duration="3848000" />
+      <workItem from="1701513854430" duration="3049000" />
     </task>
     <task id="LOCAL-00001" summary="По чуть-чуть">
       <option name="closed" value="true" />
@@ -150,7 +167,15 @@
       <option name="project" value="LOCAL" />
       <updated>1701434833192</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Add Investments and Stocks. Bug fix (not saving)">
+      <option name="closed" value="true" />
+      <created>1701439384845</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1701439384845</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -172,10 +197,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$/InvestmentApp" />
     </ignored-roots>
     <MESSAGE value="По чуть-чуть" />
-    <option name="LAST_COMMIT_MESSAGE" value="По чуть-чуть" />
+    <MESSAGE value="Add Investments and Stocks. Bug fix (not saving)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add Investments and Stocks. Bug fix (not saving)" />
   </component>
 </project>
