@@ -36,12 +36,13 @@
             // 
             // backButton
             // 
+            this.backButton.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.backButton.BackColor = System.Drawing.Color.Bisque;
             this.backButton.Font = new System.Drawing.Font("Bookman Old Style", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.backButton.Location = new System.Drawing.Point(767, 633);
+            this.backButton.Location = new System.Drawing.Point(13, 656);
             this.backButton.Margin = new System.Windows.Forms.Padding(4);
             this.backButton.Name = "backButton";
-            this.backButton.Size = new System.Drawing.Size(284, 70);
+            this.backButton.Size = new System.Drawing.Size(956, 80);
             this.backButton.TabIndex = 10;
             this.backButton.Text = "Назад";
             this.backButton.UseVisualStyleBackColor = false;
@@ -49,42 +50,44 @@
             // 
             // dataGridView
             // 
+            this.dataGridView.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView.Location = new System.Drawing.Point(131, 86);
+            this.dataGridView.Location = new System.Drawing.Point(13, 74);
             this.dataGridView.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView.Name = "dataGridView";
-            this.dataGridView.Size = new System.Drawing.Size(829, 458);
+            this.dataGridView.Size = new System.Drawing.Size(956, 574);
             this.dataGridView.TabIndex = 14;
             // 
             // titleLabel
             // 
-            this.titleLabel.AutoSize = true;
+            this.titleLabel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) | System.Windows.Forms.AnchorStyles.Right)));
             this.titleLabel.BackColor = System.Drawing.Color.Transparent;
-            this.titleLabel.Dock = System.Windows.Forms.DockStyle.Top;
             this.titleLabel.Font = new System.Drawing.Font("Bookman Old Style", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.titleLabel.Location = new System.Drawing.Point(0, 0);
+            this.titleLabel.Location = new System.Drawing.Point(13, 0);
             this.titleLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(880, 70);
+            this.titleLabel.Size = new System.Drawing.Size(956, 70);
             this.titleLabel.TabIndex = 15;
             this.titleLabel.Text = "Представление Инвестиций";
+            this.titleLabel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // InvestmentsView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1067, 718);
+            this.ClientSize = new System.Drawing.Size(982, 853);
             this.Controls.Add(this.titleLabel);
             this.Controls.Add(this.dataGridView);
             this.Controls.Add(this.backButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "InvestmentsView";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Банки";
-            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.DepositsView_FormClosed);
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.ThisFormClosed);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
         }
 
         #endregion

@@ -3,93 +3,86 @@ using System.Data;
 using System.Windows.Forms;
 using Npgsql;
 
-namespace InvestmentApp {
-    public partial class QuotesHistory : Form {
-        private const string ConnectionString =
-                "Server=localhost; Port=5432; User Id=postgres; Password=zxcvf1km2msbnm; Database=postgres;";
+namespace InvestmentApp
+{
+    public partial class QuotesHistory : TableForm
+    {
+        private const string SqlQuotesHistory = "SELECT * FROM quotes_history";
+        private const string SqlInvestment = "SELECT * FROM investments";
 
-        private const string SqlQuotesHistory = "SELECT * FROM quotes_history ORDER BY id";
-        private const string SqlInvestment = "SELECT * FROM investments ORDER BY purchase_date";
-
-        private readonly DataSet _dataSet;
-        private NpgsqlDataAdapter _adapter;
-
-
-        public QuotesHistory() {
+        public QuotesHistory() : base("quotes_history")
+        {
             InitializeComponent();
             dataGridView.DataError += Program.DataGridView_DataError;
 
             dataGridView.AllowUserToAddRows = false;
             dataGridView.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            using (var connection = new NpgsqlConnection(ConnectionString)) {
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
                 connection.Open();
-                _adapter = new NpgsqlDataAdapter(SqlQuotesHistory, connection);
+                Adapter = new NpgsqlDataAdapter(SqlQuotesHistory, connection);
                 var adapterInvestments = new NpgsqlDataAdapter(SqlInvestment, connection);
 
-                _dataSet = new DataSet();
-                _adapter.Fill(_dataSet, "quotes_history");
-                adapterInvestments.Fill(_dataSet, "investments");
+                DataSet = new DataSet();
+                Adapter.Fill(DataSet, TableName);
+                adapterInvestments.Fill(DataSet, "investments");
 
-                _dataSet.Relations.Add(new DataRelation("relationInvestmentsQuotesHistory",
-                        _dataSet.Tables["investments"].Columns["id"],
-                        _dataSet.Tables["quotes_history"].Columns["investment_id"]));
+                DataSet.Relations.Add(new DataRelation("relationInvestmentsQuotesHistory",
+                    DataSet.Tables["investments"].Columns["id"],
+                    DataSet.Tables[TableName].Columns["investment_id"]));
 
-                dataGridView.DataSource = _dataSet.Tables["quotes_history"];
+                dataGridView.DataSource = DataSet.Tables[TableName];
 
                 dataGridView.Columns["investment_id"].Visible = false;
 
                 var comboBoxInvestments = new DataGridViewComboBoxColumn();
                 comboBoxInvestments.Name = "Инвестиции";
-                comboBoxInvestments.DataSource = _dataSet.Tables["investments"];
+                comboBoxInvestments.DataSource = DataSet.Tables["investments"];
                 comboBoxInvestments.ValueMember = "id";
                 comboBoxInvestments.DataPropertyName = "investment_id";
                 dataGridView.Columns.Insert(2, comboBoxInvestments);
                 dataGridView.Columns[2].HeaderText = "Инвестиция";
-
-                // делаем недоступным столбец id для изменения
                 dataGridView.Columns["id"].ReadOnly = true;
                 dataGridView.Columns["id"].Visible = false;
                 dataGridView.Columns["date"].HeaderText = "Дата";
+                dataGridView.Columns["cost"].HeaderText = "Стоимость";
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+                connection.Close();
             }
         }
 
-        private void backButton_Click(object sender, EventArgs e) {
-            Form mainForm = new MainForm();
-            mainForm.Show();
-            Hide();
-        }
-
-        private void addButton_Click(object sender, EventArgs e) // add
+        private void removeButton_Click(object sender, EventArgs e)
         {
-            var row = _dataSet.Tables["quotes_history"].NewRow(); // добавляем новую строку в DataTable
-            _dataSet.Tables["quotes_history"].Rows.Add(row);
+            removeButton_Click(dataGridView);
         }
 
-        private void saveButton_Click(object sender, EventArgs e) {
-            try {
-                using (var connection = new NpgsqlConnection(ConnectionString)) {
-                    connection.Open();
-                    _adapter = new NpgsqlDataAdapter(SqlQuotesHistory, connection);
-                    _adapter.UpdateCommand = new NpgsqlCommandBuilder(_adapter).GetUpdateCommand();
-                    _adapter.Update(_dataSet, "quotes_history");
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            using (var connection = new NpgsqlConnection(ConnectionString))
+            {
+                connection.Open();
+                using (var command = connection.CreateCommand())
+                {
+                    command.CommandText = "CALL clean_quotes_history()";
+                    command.ExecuteNonQuery();
                 }
 
-                MessageBox.Show(@"Сохранение успешно выполнено.");
-            }
-            catch (Exception exception) {
-                Console.WriteLine(exception);
-                MessageBox.Show($@"{exception.Data["MessageText"]}");
-            }
-        }
+                Adapter = new NpgsqlDataAdapter(SqlQuotesHistory, connection);
+                var adapterInvestments = new NpgsqlDataAdapter(SqlInvestment, connection);
 
-        private void removeButton_Click(object sender, EventArgs e) // delete
-        {
-            foreach (DataGridViewRow row in dataGridView.SelectedRows) dataGridView.Rows.Remove(row);
-        }
+                DataSet = new DataSet();
+                Adapter.Fill(DataSet, TableName);
+                adapterInvestments.Fill(DataSet, "investments");
 
-        private void QuotesHistory_FormClosed(object sender, FormClosedEventArgs e) {
-            Application.Exit();
+                DataSet.Relations.Add(new DataRelation("relationInvestmentsQuotesHistory",
+                    DataSet.Tables["investments"].Columns["id"],
+                    DataSet.Tables[TableName].Columns["investment_id"]));
+
+                dataGridView.DataSource = DataSet.Tables[TableName];
+
+                dataGridView.Refresh();
+                connection.Close();
+            }
         }
     }
 }

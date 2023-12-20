@@ -1,13 +1,12 @@
-﻿using System;
-using System.Data;
+﻿using System.Data;
 using System.Windows.Forms;
 using Npgsql;
 
 namespace InvestmentApp
 {
-    public partial class Banks : TableForm
+    public partial class EarnedAmountView : TableForm
     {
-        public Banks() : base("banks")
+        public EarnedAmountView() : base("earned_amount_view")
         {
             InitializeComponent();
             dataGridView.DataError += Program.DataGridView_DataError;
@@ -18,22 +17,16 @@ namespace InvestmentApp
             {
                 connection.Open();
                 Adapter = new NpgsqlDataAdapter(Sql, connection);
-
                 DataSet = new DataSet();
                 Adapter.Fill(DataSet, TableName);
                 dataGridView.DataSource = DataSet.Tables[TableName];
-                dataGridView.Columns["id"].ReadOnly = true;
-                dataGridView.Columns["id"].Visible = false;
-                dataGridView.Columns["name"].HeaderText = "Название";
-                dataGridView.Columns["percent"].HeaderText = "Процент по депозиту";
+                dataGridView.ReadOnly = true;
+                dataGridView.Columns["client_name"].HeaderText = "Имя клиента";
+                dataGridView.Columns["bank_name"].HeaderText = "Название банка";
+                dataGridView.Columns["earned"].HeaderText = "Заработок с депозитов";
                 dataGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
                 connection.Close();
             }
-        }
-
-        private void removeButton_Click(object sender, EventArgs e)
-        {
-            removeButton_Click(dataGridView);
         }
     }
 }
